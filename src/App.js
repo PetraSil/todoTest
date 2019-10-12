@@ -25,10 +25,12 @@ const App = () => {
   const readyTodo = (id) => {
     const newTodos = [...todos];
     let index =(todos.findIndex(item => item.id === id))
-    newTodos[index].done = true;
+    if(newTodos[index].done === true) {
+      newTodos[index].done = false
+    } else {
+      newTodos[index].done = true;
+    }
     setTodos(newTodos);
-    console.log(newTodos)
-    console.log(todos);
 
     /*if(e.target.classList.contains("done")) {
       e.target.classList.remove('done');
