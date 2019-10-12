@@ -22,12 +22,13 @@ const App = () => {
     setTodos(todos.filter((item) => item.id !== id))
   }
 
-  const readyTodo = (e) => {
-   if(e.target.classList.contains("done")) {
-      e.target.classList.remove('done');
-    } else {
-      e.target.classList.add('done');
-    }
+  const readyTodo = (id) => {
+    const newTodos = [...todos];
+    let index =(todos.findIndex(item => item.id === id))
+    newTodos[index].done = true;
+    setTodos(newTodos);
+    console.log(newTodos)
+    console.log(todos);
   }
 
   return (
@@ -38,10 +39,10 @@ const App = () => {
         <button>Submit</button>
         <ol>
           {todos.map((item) => (
-            <li key={item.id}>{item.text}
+            <li style={{ textDecoration: todo.done ? "line-through" : "" }} key={item.id}>{item.text}
             <div className="spanContainer">
               <span onClick={() => deleteTodo(item.id)}>Delete</span>
-              <span onClick={readyTodo}>Done</span>
+              <span onClick={() => readyTodo(item.id)}>Done</span>
             </div>
             </li>
           ))}
