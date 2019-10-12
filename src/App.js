@@ -1,6 +1,25 @@
 import React, { useState } from 'react';
 import './App.css';
 
+const TodoList = (props) => {
+  return (
+    <form onSubmit={props.addTodo}>
+      <input placeholder="Add new todo..." onChange={props.handleTodo}></input>
+      <button>Submit</button>
+      {props.todos.map((item) => (
+      <div key={Math.random()} className="todosContainer">
+        <div style={{ textDecoration: item.done ? "line-through" : "" }} key={item.id}>{item.text}
+        </div>
+        <div className="todosButtonContainer">
+          <span onClick={() => props.deleteTodo(item.id)}>Delete</span>
+          <span onClick={() => props.readyTodo(item.id)}>Done</span>
+        </div>
+      </div>
+      ))}
+    </form>
+  )
+}
+
 const App = () => {
 
   const [todo, setTodo] = useState("");
@@ -42,20 +61,7 @@ const App = () => {
   return (
     <div className="App">
     <h1>TODOS:</h1>
-      <form onSubmit={addTodo}>
-        <input placeholder="Add new todo..." onChange={handleTodo}></input>
-        <button>Submit</button>
-        {todos.map((item) => (
-        <div className="todosContainer">
-          <div style={{ textDecoration: item.done ? "line-through" : "" }} key={item.id}>{item.text}
-          </div>
-          <div className="todosButtonContainer">
-            <span onClick={() => deleteTodo(item.id)}>Delete</span>
-            <span onClick={() => readyTodo(item.id)}>Done</span>
-          </div>
-        </div>
-        ))}
-      </form>
+    <TodoList addTodo={addTodo} handleTodo={handleTodo} todos={todos} deleteTodo={deleteTodo} readyTodo={readyTodo} />
     </div>
   );
 }
