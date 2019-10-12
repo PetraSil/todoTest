@@ -45,16 +45,16 @@ const App = () => {
       <form onSubmit={addTodo}>
         <input placeholder="Add new todo..." onChange={handleTodo}></input>
         <button>Submit</button>
-        <ol>
-          {todos.map((item) => (
-            <li style={{ textDecoration: item.done ? "line-through" : "" }} key={item.id}>{item.text}
-            <div className="spanContainer">
-              <span onClick={() => deleteTodo(item.id)}>Delete</span>
-              <span onClick={() => readyTodo(item.id)}>Done</span>
-            </div>
-            </li>
-          ))}
-        </ol>
+        {todos.map((item) => (
+        <div className="todosContainer">
+          <div style={{ textDecoration: item.done ? "line-through" : "" }} key={item.id}>{item.text}
+          </div>
+          <div className="todosButtonContainer">
+            <span onClick={() => deleteTodo(item.id)}>Delete</span>
+            <span onClick={() => readyTodo(item.id)}>Done</span>
+          </div>
+        </div>
+        ))}
       </form>
     </div>
   );
