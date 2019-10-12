@@ -29,6 +29,12 @@ const App = () => {
     setTodos(newTodos);
     console.log(newTodos)
     console.log(todos);
+
+    /*if(e.target.classList.contains("done")) {
+      e.target.classList.remove('done');
+    } else {
+      e.target.classList.add('done');
+    }*/
   }
 
   return (
@@ -39,7 +45,7 @@ const App = () => {
         <button>Submit</button>
         <ol>
           {todos.map((item) => (
-            <li style={{ textDecoration: todo.done ? "line-through" : "" }} key={item.id}>{item.text}
+            <li style={{ textDecoration: item.done ? "line-through" : "" }} key={item.id}>{item.text}
             <div className="spanContainer">
               <span onClick={() => deleteTodo(item.id)}>Delete</span>
               <span onClick={() => readyTodo(item.id)}>Done</span>
