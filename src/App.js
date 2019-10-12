@@ -12,13 +12,22 @@ const App = () => {
 
   const addTodo = (e) => {
     e.preventDefault();
-    if(todo === "") return;
-    setTodos([...todos, {id: Date.now(), text: todo}]);
+    if(!todo) return;
+    setTodos([...todos, {id: Date.now(), text: todo, done: false}]);
+    setTodo("");
     e.target.reset();
   }
 
   const deleteTodo = (id) => {
     setTodos(todos.filter((item) => item.id !== id))
+  }
+
+  const readyTodo = (e) => {
+   if(e.target.classList.contains("done")) {
+      e.target.classList.remove('done');
+    } else {
+      e.target.classList.add('done');
+    }
   }
 
   return (
@@ -29,7 +38,12 @@ const App = () => {
         <button>Submit</button>
         <ol>
           {todos.map((item) => (
-            <li key={item.id}>{item.text}<span onClick={() => deleteTodo(item.id)}>X</span></li>
+            <li key={item.id}>{item.text}
+            <div className="spanContainer">
+              <span onClick={() => deleteTodo(item.id)}>Delete</span>
+              <span onClick={readyTodo}>Done</span>
+            </div>
+            </li>
           ))}
         </ol>
       </form>

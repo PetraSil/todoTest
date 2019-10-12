@@ -4,6 +4,7 @@
 
 input {
   padding: 0.2rem;
+  width: 11.5rem;
 }
 
 button {
@@ -12,9 +13,13 @@ button {
   color: white;
   border: 2px solid transparent;
   transition: 0.2s all linear;
-  border-radius: 10%;
+  border-radius: 5%;
   margin-left: 1rem;
   cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
 }
 
 button:hover {
@@ -32,7 +37,6 @@ li span {
   color: white;
   transition: all 0.2s linear;
   font-size: 0.7rem;
-  border-radius: 20%;
 }
 
 li span:hover {
@@ -43,9 +47,20 @@ li span:hover {
 
 li {
   margin-bottom: 0.5rem;
+  min-width: 15rem;
+  max-width: 20rem;
+  word-break: break-all;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 10rem;
-  word-break: break-all;
+  padding: 1rem;
+  background-color: rgb(226, 226, 226);
+}
+
+ol {
+  padding: 0;
+}
+
+.spanContainer {
+  min-width: 7rem;
 }
