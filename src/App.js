@@ -20,12 +20,12 @@ const App = () => {
   }
 
   const deleteTodo = (id) => {
-    setTodos(todos.filter((item) => item.id !== id))
+    setTodos(todos.filter(item => item.id !== id))
   }
 
   const readyTodo = (id) => {
     const newTodos = [...todos];
-    let index =(todos.findIndex(item => item.id === id))
+    let index = (newTodos.findIndex(item => item.id === id))
     if(newTodos[index].done === true) {
       newTodos[index].done = false
     } else {
