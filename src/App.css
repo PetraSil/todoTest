@@ -40,20 +40,3 @@ button:hover {
 .todosButtonContainer {
   min-width: 11rem;
 }
-
-span {
-  padding: 0.5rem 1rem;
-  background-color: black;
-  color: white;
-  margin: 0.5rem;
-  cursor: pointer;
-  font-size: 0.8rem;
-  border: 2px solid black;
-  transition: all 0.2s linear;
-}
-
-span:hover {
-  background-color: white;
-  color: black;
-  border: 2px solid black;
-}

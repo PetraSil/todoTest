@@ -7,8 +7,8 @@ const TodoItems = ({ todos, deleteTodo, readyTodo }) => {
           <div key={Math.random()} className="todosContainer">
             <div style={{ textDecoration: item.done ? "line-through" : "" }} key={item.id}>{item.text}</div>
             <div className="todosButtonContainer">
-              <span onClick={() => deleteTodo(item.id)}>Delete</span>
-              <span onClick={() => readyTodo(item.id)}>Done</span>
+              <button onClick={() => deleteTodo(item.id)}>Delete</button>
+              <button onClick={() => readyTodo(item.id)}>Done</button>
             </div>
           </div>
         ))}
